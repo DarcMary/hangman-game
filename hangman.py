@@ -1,12 +1,13 @@
 import random
+from words import categories
 
-palavras = ["computador", "programação", "software", "hardware", "internet", "inteligência artificial", "criptografia", "cibersegurança", "desenvolvimento", "algoritmo", "backend", "frontend", "javascript", "python", "react", "database", "servidor", "cloud", "rede", "dados", "bit", "byte", "blockchain", "criptomoeda"]
+categoria_escolhida = random.choice(list(categories.keys()))
+palavra_escolhida = random.choice(categories[categoria_escolhida])
 
-palavra_aleatoria = random.choice(palavras)
+letras = list(palavra_escolhida)
+palavra_oculta = ["_" if letra != " " else " " for letra in palavra_escolhida]
 
-letras = list(palavra_aleatoria)
-palavra_oculta = ["_" if letra != " " else " " for letra in palavra_aleatoria]
-
+print(f"Categoria: {categoria_escolhida}")
 print("Palavra: ", " ".join(palavra_oculta))
 
 while "_" in palavra_oculta:
